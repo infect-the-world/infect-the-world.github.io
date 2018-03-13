@@ -1,0 +1,121 @@
+<html>
+
+    <head>
+        <title>Infect the World</title>
+
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/babylon.custom.js"></script>
+        <script src="js/web3.js"></script>
+        <script src="js/game.js"></script>
+
+        <link href="style/style.css" rel="stylesheet" />
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="header">
+                <h1>Infect the World</h1>
+                <div>
+                    <button id="homeButton">Home</button>
+                    <button id="accountButton">My viruses</button>
+                </div>
+            </div>
+
+            <div id="landing">
+                <div id="world">
+                    <img src="images/world.jpg" />
+                    <span id="totalInfected"></span>/
+                    <span id="totalPopulation"></span>
+                    People infected
+                </div>
+                <h2>Latest Viruses</h2>
+                <div id="latest-virus">
+
+                </div>
+                <h2>FAQ</h2>
+                <div>
+                    <h3>How do I get my own virus?</h3>
+                    <p>
+                        Click on the details of one of the latest viruses. Now you should see a "Mutate" button.
+                        Enter the name of your virus and click it.
+                    </p>
+                    <h3>Can I make Ether from my viruses?</h3>
+                    <p>
+                        Yes! For every infected person your virus increases its value. The value depends also on
+                        how many people the other players infect. So it can increase or decrease over time.
+                        Once you withdraw your Ether, you have to wait 24 hours to withdraw again.<br />
+                    </p>
+                    <h3>What is a mutation?</h3>
+                    <p>
+                        A mutation generates the next generation of a virus. Mutated viruses could be slightly better or
+                        worse. When a mutated virus infects people, the parent virus will infect more people the next time
+                        the action is triggered.
+                    </p>
+                    <h3>My Virus gets mutated by others, what happens?</h3>
+                    <p>
+                        Every time the mutated virus infects people, a small amount of people gets infected with the parent virus.
+                    </p>
+                    <h3>Why is the price of a mutation increasing every generation?</h3>
+                    <p>
+                        Because its potential can increase too! The better the potential, the more people will get infected.
+                    </p>
+                    <h3>How often can a virus mutate?</h3>
+                    <p>
+                        As often as you like. There is no limitation, so you can mutate until you are happy with its potential.
+                    </p>
+                    <h3>How many generations are possible?</h3>
+                    <p>
+                        As with the mutation, there is no limit. But be aware the price of a mutation keeps increasing too.
+                    </p>
+                    <h3>Why is the value/to infect estimated?</h3>
+                    <p>
+                        The value changes over time. It takes time to process your transaction, so you always see
+                        a value slightly out of time.
+                    </p>
+                </div>
+            </div>
+                    
+            <div id="account">
+                <div id="account-virus">
+
+                </div>
+            </div>
+            
+            <div id="virus">
+                <div class="virus-info">
+                    <h2 id="virus-name"></h2>
+                    <canvas id="virus-canvas"></canvas>
+                    <div class="virus-card-content">
+                        Generation: <span id="virus-generation"></span><br />
+                        Potential: <span id="virus-potential"></span><br />
+                        Infected: <span id="virus-infected"></span><br />
+                        To infect (estimated): <span id="virus-to-infect"></span><br />
+                        Value (estimated): <span id="virus-value"></span><br /><br />
+                        <button id="virus-parent">Parent</button>
+                        <button id="virus-infect">Infect</button>
+                        <button id="virus-withdraw">Withdraw</button>
+                        <input type="text" placeholder="Mutation name..." id="virus-mutation-name" maxlength="32" />
+                        <button id="virus-mutate">Mutate</button>
+                    </div>
+                </div><div id="virus-world">
+                    <img src="images/world.jpg" />
+                </div>
+            </div>
+            
+            <div id="log">
+                
+            </div>
+            
+            <div class="footer">
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
