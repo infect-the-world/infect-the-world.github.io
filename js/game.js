@@ -64,7 +64,7 @@ $(document).ready(() => {
                         return VirusGame.methods.virus(virusHash).call().then((virus) => {
                             $('#latest-virus').append(
                                 '<div class="virus-card">' +
-                                    '<div class="virus-card-title">' + web3.utils.toAscii(virus.name.replace(/<(\w)/, '< $1')) + '</div>' +
+                                    '<div class="virus-card-title" id="virus-title-' + virusHash + '"></div>' +
                                     '<canvas id="card' + virusHash + '" class="virus-card-canvas"></canvas>' +
                                     '<div class="virus-card-content">' + 
                                         'Generation: ' + virus.generation + '<br />' +
@@ -82,6 +82,8 @@ $(document).ready(() => {
                             showDNA('card' + virusHash, virusHash);
 
                             return virus;
+                        }).then((virus) => {
+                            $('#virus-title-' + virusHash).text(web3.utils.toAscii(virus.name));
                         });
                     });
                 }
@@ -99,7 +101,7 @@ $(document).ready(() => {
                         return VirusGame.methods.virus(virusHash).call().then((virus) => {
                             $('#account-virus').append(
                                 '<div class="virus-row">' +
-                                    '<div class="virus-row-title">' + web3.utils.toAscii(virus.name.replace(/<(\w)/, '< $1')) + '</div>' +
+                                    '<div class="virus-row-title" id="virus-row-' + virusHash + '"></div>' +
                                     '<div class="virus-row-content">' + 
                                         'Generation: ' + virus.generation + ' - ' +
                                         'Potential: ' + virus.potential + ' - ' +
@@ -114,6 +116,8 @@ $(document).ready(() => {
                             });
 
                             return virus;
+                        }).then((virus) => {
+                            $('#virus-row-' + virusHash).text(web3.utils.toAscii(virus.name));
                         });
                     });
                 }
@@ -124,7 +128,7 @@ $(document).ready(() => {
         
         pages.virus = () => {
             VirusGame.methods.virus(selectedVirus).call().then((virus) => {
-                $('#virus-name').html(web3.utils.toAscii(virus.name.replace(/<(\w)/, '< $1')));
+                $('#virus-name').text(web3.utils.toAscii(virus.name));
                 $('#virus-generation').html(virus.generation);
                 $('#virus-potential').html(virus.potential);
                 $('#virus-infected').html(virus.infected);
