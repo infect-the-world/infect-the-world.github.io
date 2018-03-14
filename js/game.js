@@ -64,7 +64,7 @@ $(document).ready(() => {
                         return VirusGame.methods.virus(virusHash).call().then((virus) => {
                             $('#latest-virus').append(
                                 '<div class="virus-card">' +
-                                    '<div class="virus-card-title">' + web3.utils.toAscii(virus.name) + '</div>' +
+                                    '<div class="virus-card-title">' + web3.utils.toAscii(virus.name.replace(/<(\w)/, '< $1')) + '</div>' +
                                     '<canvas id="card' + virusHash + '" class="virus-card-canvas"></canvas>' +
                                     '<div class="virus-card-content">' + 
                                         'Generation: ' + virus.generation + '<br />' +
@@ -99,7 +99,7 @@ $(document).ready(() => {
                         return VirusGame.methods.virus(virusHash).call().then((virus) => {
                             $('#account-virus').append(
                                 '<div class="virus-row">' +
-                                    '<div class="virus-row-title">' + web3.utils.toAscii(virus.name) + '</div>' +
+                                    '<div class="virus-row-title">' + web3.utils.toAscii(virus.name.replace(/<(\w)/, '< $1')) + '</div>' +
                                     '<div class="virus-row-content">' + 
                                         'Generation: ' + virus.generation + ' - ' +
                                         'Potential: ' + virus.potential + ' - ' +
@@ -124,7 +124,7 @@ $(document).ready(() => {
         
         pages.virus = () => {
             VirusGame.methods.virus(selectedVirus).call().then((virus) => {
-                $('#virus-name').html(web3.utils.toAscii(virus.name));
+                $('#virus-name').html(web3.utils.toAscii(virus.name.replace(/<(\w)/, '< $1')));
                 $('#virus-generation').html(virus.generation);
                 $('#virus-potential').html(virus.potential);
                 $('#virus-infected').html(virus.infected);
